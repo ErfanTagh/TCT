@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_card_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/amount_layout"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/board_back"
+        android:onClick="onClick">
+
+        <TextView
+            android:id="@+id/amount_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:alpha="0.78"
+            android:text="تعداد"
+            android:textColor="#FFF"
+            android:textSize="13dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/amount_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="هنوز شماره تلفنی ثبت نشده"
+            android:textColor="#FFF"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/amount_toman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:alpha="0.78"
+            android:text="تومان"
+            android:textColor="#FFF"
+            android:textSize="13dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/add_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_below="@+id/amount_layout"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:clickable="false">
+
+            <Button
+                android:id="@+id/bt1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:background="@drawable/add_tiny_button"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@+id/bt1"
+                android:alpha="0.54"
+                android:gravity="center"
+                android:text="شماره تلفن خود را وارد کنید..."
+                android:textColor="#000" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/add_bill"
+        android:layout_alignParentBottom="true"
+        android:fillViewport="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fitsSystemWindows="true"/>
+
+</RelativeLayout>

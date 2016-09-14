@@ -1,0 +1,214 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/animationLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activation_back"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/topLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/tci_label"
+            android:background="@drawable/tci_logo" />
+
+        <TextView
+            android:id="@+id/tci_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:text="مخابرات شگفت انگیز"
+            android:textColor="#FFF" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/edittext_back"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_below="@+id/topLogo"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|center"
+                android:clickable="false"
+                android:padding="15dp"
+                android:textColor="#FFFFFF"
+                android:textDirection="ltr"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.54"
+            android:background="@drawable/register_bg_ed2">
+
+            <EditText
+                android:id="@+id/code_Edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="right|center"
+                android:inputType="phone|number"
+                android:maxLength="11"
+                android:padding="15dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFF"
+                android:textDirection="ltr"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:clickable="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right|center"
+                android:clickable="false"
+                android:padding="5dp"
+                android:text="کد فعال سازی را وارد کنید ..."
+                android:textColor="#FFFFFF"
+                android:textDirection="ltr"
+                android:textSize="15dp"
+                android:id="@+id/textView"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp"
+        android:gravity="bottom"
+        android:layout_below="@id/edittext_back"
+        android:layout_above="@+id/bottom_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/time_label"
+            android:text="زمان :"
+            android:textColor="#FFF"/>
+
+        <Chronometer
+            android:id="@+id/time_label"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#FFF"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_height="?actionBarSize"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:layout_above="@+id/center_text">
+
+        <RelativeLayout
+            android:id="@+id/submit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:alpha="0.26"
+            android:background="@drawable/register_bg_ed4"
+            android:gravity="center">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/continue_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="ادامه"
+                android:textColor="#FFF" />
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/continue_button1"
+                android:background="@drawable/arrow" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/center_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.78"
+        android:textSize="12dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="کد فعالسازی خود را در کادر بالا وارد نمایید در صورت عدم دریافت کد
+تا دو دقیقه لطفا روی ارسال دوباره کلیک کنید."
+        android:textColor="#FFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/submit_layout_button"
+        android:layout_alignStart="@+id/submit_layout_button" />
+
+    <RelativeLayout
+        android:id="@+id/wait_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="@drawable/loading_bg2"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_view"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

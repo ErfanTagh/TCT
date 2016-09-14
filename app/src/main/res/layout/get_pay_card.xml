@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/activation_bg_white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:clickable="true"
+        android:padding="30dp"
+        android:focusableInTouchMode="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="45dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:text="اطلاعات کارت خود را وارد کنید "
+            android:textColor="#000000" />
+
+        <RelativeLayout
+            android:id="@+id/edittext_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_bg_ed"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/card_Edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="right"
+                android:hint="شماره کارت"
+                android:inputType="phone|number"
+                android:maxLength="19"
+                android:textSize="15dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#9c88bd"
+                android:textDirection="ltr" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_bg_ed"
+            android:layout_marginTop="16dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/passEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="right"
+                android:hint="رمز دوم"
+                android:inputType="numberPassword"
+                android:maxLength="15"
+                android:textSize="15dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#9c88bd"
+                android:textDirection="ltr" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45"
+                android:background="@drawable/button_selector_green"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="لغو"
+                    android:textColor="#FFFFFF" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.1" />
+
+            <RelativeLayout
+                android:id="@+id/confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45"
+                android:background="@drawable/button_selector_white"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="پرداخت"
+                    android:textColor="#FFF" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

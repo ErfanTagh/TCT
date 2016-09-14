@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e3f2fd"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="#e3f2fd"
+            android:gravity="right|center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/menu_open"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_menu_white_36dp"
+                android:gravity="center"
+                android:onClick="onClick" />
+
+            <TextView
+                android:id="@+id/pageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@+id/menu_open"
+                android:text="مخابرات شگفت انگیز"
+                android:textColor="#4d872c"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="200dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bill_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/amount_layout"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:id="@+id/main_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:gravity="right|center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:layout_toLeftOf="@+id/isPayed"
+                            android:gravity="right"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tel_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="256 KB"
+                                    android:textColor="#4d872c"
+                                    android:textSize="12dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="سرعت"
+                                    android:textColor="#01c5ff" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:layout_gravity="left"
+                                    android:layout_marginLeft="30dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/pay_lable"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="پرداخت شده"
+                                        android:textColor="#00e676"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="تومان"
+                                        android:textColor="#01c5ff" />
+
+                                    <TextView
+                                        android:id="@+id/amount"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="15,000"
+                                        android:textColor="#4d872c" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="مبلغ"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:layout_gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="3 G"
+                                        android:textColor="#4d872c"
+                                        android:textSize="12dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="حجم"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/isPayed"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:background="#01c5ff"
+                            android:gravity="center">
+
+                            <CheckBox
+                                android:id="@+id/check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="false" />
+
+                        </RelativeLayout>
+
+                        <ImageButton
+                            android:id="@+id/edit_dot"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="10dp"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.26"
+                            android:background="@drawable/ic_more_vert_black_36dp"
+                            android:scaleType="fitCenter"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bill_result1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/amount_layout"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:gravity="right|center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:layout_toLeftOf="@+id/isPayed1"
+                            android:gravity="right"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="512 KB"
+                                    android:textColor="#4d872c"
+                                    android:textSize="12dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="سرعت"
+                                    android:textColor="#01c5ff" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:layout_gravity="left"
+                                    android:layout_marginLeft="30dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/pay_lable1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="پرداخت شده"
+                                        android:textColor="#00e676"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="تومان"
+                                        android:textColor="#01c5ff" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="25,000"
+                                        android:textColor="#4d872c" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="مبلغ"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:layout_gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="6 G"
+                                        android:textColor="#4d872c"
+                                        android:textSize="12dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="حجم"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/isPayed1"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:background="#01c5ff"
+                            android:gravity="center">
+
+                            <CheckBox
+                                android:id="@+id/check1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="false" />
+
+                        </RelativeLayout>
+
+                        <ImageButton
+                            android:id="@+id/edit_dot1"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="10dp"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.26"
+                            android:background="@drawable/ic_more_vert_black_36dp"
+                            android:scaleType="fitCenter"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/amount_layout"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center"
+                        android:gravity="right|center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:layout_toLeftOf="@+id/isPayed2"
+                            android:gravity="right"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="1 M"
+                                    android:textColor="#4d872c"
+                                    android:textSize="12dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="سرعت"
+                                    android:textColor="#01c5ff" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:layout_gravity="left"
+                                    android:layout_marginLeft="30dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/pay_lable2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="پرداخت شده"
+                                        android:textColor="#00e676"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="تومان"
+                                        android:textColor="#01c5ff" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="46,000"
+                                        android:textColor="#4d872c" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="مبلغ"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:layout_gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="12 G"
+                                        android:textColor="#4d872c"
+                                        android:textSize="12dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:text="حجم"
+                                        android:textColor="#01c5ff" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/isPayed2"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:background="#01c5ff"
+                            android:gravity="center">
+
+                            <CheckBox
+                                android:id="@+id/check2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="false"/>
+
+                        </RelativeLayout>
+
+                        <ImageButton
+                            android:id="@+id/edit_dot2"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="10dp"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.26"
+                            android:background="@drawable/ic_more_vert_black_36dp"
+                            android:scaleType="fitCenter"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom_action_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:background="#131d36"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/report"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/report"
+                    android:gravity="center"
+                    android:onClick="onClick" />
+
+                <Button
+                    android:id="@+id/card_list"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/card"
+                    android:gravity="center"
+                    android:onClick="onClick" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pay_layout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="-30dp"
+                android:background="@drawable/circle_bg_bottom"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/pay_text"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="پرداخت"
+                android:textColor="#FFF"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:clickable="false">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:clickable="true">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/version">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/nav_header_main" />
+
+                    <LinearLayout
+                        android:id="@+id/adslLA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right|center"
+                        android:onClick="onClick"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mciText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center"
+                            android:layout_marginRight="10dp"
+                            android:alpha="0.54"
+                            android:clickable="true"
+                            android:gravity="right|center"
+                            android:onClick="onClick"
+                            android:text="خرید شارژ ADSL"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/internationalLA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right|center"
+                        android:onClick="onClick"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mtnText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center"
+                            android:layout_marginRight="10dp"
+                            android:alpha="0.54"
+                            android:clickable="true"
+                            android:gravity="right|center"
+                            android:onClick="onClick"
+                            android:text="تماس بین المللی"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/problemLA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right|center"
+                        android:onClick="onClick"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mtnText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center"
+                            android:layout_marginRight="10dp"
+                            android:alpha="0.54"
+                            android:clickable="true"
+                            android:gravity="right|center"
+                            android:text="خرابی تلفن"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="20dp"
+                        android:alpha="0.26"
+                        android:background="#858687" />
+
+                    <LinearLayout
+                        android:id="@+id/exitLA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right|center"
+                        android:onClick="onClick"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center"
+                            android:layout_marginRight="10dp"
+                            android:alpha="0.54"
+                            android:clickable="false"
+                            android:gravity="right|center"
+                            android:text="خروج"
+                            android:textColor="#000000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:alpha="0.34"
+                android:clickable="false"
+                android:gravity="right|center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</android.support.v4.widget.DrawerLayout>
