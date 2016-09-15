@@ -53,7 +53,7 @@ public class ReportFragments extends Fragment {
             recBills.setLayoutManager(llm);
             adapter.notifyDataSetChanged();
         }
-        ((MainActivity) getActivity()).selected_report.setVisibility(View.VISIBLE);
+//        ((MainActivity) getActivity()).selected_report.setVisibility(View.VISIBLE);
         return v;
     }
 
@@ -124,14 +124,14 @@ public class ReportFragments extends Fragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-//        ((MainActivity) getActivity()).addCard.setVisibility(View.GONE);
-//        ((MainActivity) getActivity()).pay_text.setVisibility(View.VISIBLE);
-        ((MainActivity) getActivity()).gift.setVisibility(View.VISIBLE);
-        ((MainActivity) getActivity()).selected_report.setVisibility(View.GONE);
-    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+////        ((MainActivity) getActivity()).addCard.setVisibility(View.GONE);
+////        ((MainActivity) getActivity()).pay_text.setVisibility(View.VISIBLE);
+//        ((MainActivity) getActivity()).gift.setVisibility(View.VISIBLE);
+//        ((MainActivity) getActivity()).selected_report.setVisibility(View.GONE);
+//    }
 
     private String getDividedToman(Long price) {
         if (price == 0) {

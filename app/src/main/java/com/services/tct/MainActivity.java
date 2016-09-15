@@ -231,6 +231,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.accounting_layout:
 
+                reportFragments = new ReportFragments().newInstance();
+                getFragmentManager().beginTransaction().replace(R.id.detail_fragment, reportFragments).addToBackStack(null).commit();
+
 
                 reportList.setBackgroundResource(R.drawable.app_bottom_ic);
                 appTextView.setTextColor(Color.parseColor("#000000"));
