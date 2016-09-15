@@ -16,8 +16,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ import com.services.tct.Parser.RSSItem;
 import com.services.tct.R;
 import com.services.tct.Utilities.LocalPersistence;
 
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 public class AddBillFragment extends Fragment implements View.OnClickListener{
 
     TextView amountBoard, amount_toman, amount_count;
@@ -39,6 +43,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
     RSSFeed _feed;
     long payId = 0, billId = 0, price = 0;
     int count=0, pos = 0;
+//    LinearLayout actionBarBill;
 
     public static AddBillFragment newInstance() {
         AddBillFragment fragmentDemo = new AddBillFragment();
@@ -53,8 +58,29 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         amount_toman = (TextView) v.findViewById(R.id.amount_toman);
         amount_count = (TextView) v.findViewById(R.id.amount_count);
         amountBoard = (TextView) v.findViewById(R.id.amount_board);
-        ((MainActivity)getActivity()).addBill = (CardView) v.findViewById(R.id.add_bill);
-        ((MainActivity)getActivity()).addBill.setOnClickListener(this);
+
+        v.findViewById(R.id.actionBar_bill).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG, "onClick: 00000000" );
+                FragmentTransaction ft;
+                ((MainActivity)getActivity()).isFrag = 3;
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    ((MainActivity)getActivity()).addBill.setElevation(0);
+//                }
+                ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
+                ((MainActivity)getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
+                ft = getFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
+                ft.add(android.R.id.content, ((MainActivity)getActivity()).getPhoneFragment).commit();
+
+
+
+            }
+        });
+
+//        ((MainActivity)getActivity()).addBill = (CardView) v.findViewById(R.id.add_bill);
+//        ((MainActivity)getActivity()).addBill.setOnClickListener(this);
         v.findViewById(R.id.amount_layout).setOnClickListener(this);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "IRANSansMobile(FaNum)_Light.ttf");
         amountBoard.setTypeface(typeface);
@@ -66,7 +92,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         else
             _feed = (RSSFeed) localPersistence.readObjectFromFile(getActivity(), "Bill_List");
 
-        removeAllCheck(_feed);
+//        removeAllCheck(_feed);
         updatePrices();
 
         if (_feed != null) {
@@ -85,20 +111,22 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
 
 
     public class FeedViewHolder extends RecyclerView.ViewHolder {
-        protected RelativeLayout main_layout,isPayed_layout;
+        protected RelativeLayout main_layout;//,isPayed_layout
         protected TextView phone, amount, pay_label;
-        protected CheckBox isSelect;
+//        protected CheckBox isSelect;
         ImageButton edit_more;
+        Button paymentButton;
 
         public FeedViewHolder(View v) {
             super(v);
             phone = (TextView) v.findViewById(R.id.tel_number);
             amount = (TextView) v.findViewById(R.id.amount);
             pay_label = (TextView) v.findViewById(R.id.pay_lable);
-            isSelect = (CheckBox) v.findViewById(R.id.check);
+//            isSelect = (CheckBox) v.findViewById(R.id.check);
             main_layout = (RelativeLayout) v.findViewById(R.id.main_layout);
-            isPayed_layout = (RelativeLayout) v.findViewById(R.id.isPayed);
+//            isPayed_layout = (RelativeLayout) v.findViewById(R.id.isPayed);
             edit_more = (ImageButton) v.findViewById(R.id.edit_dot);
+            paymentButton=(Button) v.findViewById(R.id.paymentButton);
         }
     }
 
@@ -117,43 +145,17 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
             final RSSItem fe = _feed.getItem(position);
             FeedViewHolder.phone.setText(fe.getTelNo().toString().substring(2));
             FeedViewHolder.amount.setText(getDividedToman(fe.getAmount()) + "");
+            if (fe.getIsPayed())
+            {
 
-            FeedViewHolder.isSelect.setChecked(fe.getIsSelected());
+                FeedViewHolder.paymentButton.setVisibility(View.GONE);
 
-            FeedViewHolder.main_layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (fe.getIsPayed() || fe.getAmount() == 0) {
-                        Toast.makeText(getActivity(), "قبض قبلا پرداخت شده!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        removeAllCheck(_feed);
-                        if (FeedViewHolder.isSelect.isChecked()) {
-                            FeedViewHolder.isSelect.setChecked(false);
-                            fe.setIsSelected(false);
-                            ((MainActivity) getActivity()).isCheck = false;
-                            ((MainActivity) getActivity()).pay_layout.animate().translationY(0).scaleX((float) 1).scaleY((float) 1).setDuration(250);//.startAnimation(anim);
-                        } else {
-                            FeedViewHolder.isSelect.setChecked(true);
-                            fe.setIsSelected(true);
-                            ((MainActivity) getActivity()).isCheck = true;
-                            billId = fe.getBillId();
-                            payId = fe.getPayId();
-                            pos = position;
-                            ((MainActivity) getActivity()).pay_layout.animate().translationY(-20).scaleX((float) 1.2).scaleY((float) 1.2).setDuration(250);
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-            });
 
-            if (fe.getIsPayed() || fe.getAmount() == 0) {
-                FeedViewHolder.isPayed_layout.setBackgroundColor(Color.parseColor("#ff8a80"));
-                //Color needs to be changed
-//                FeedViewHolder.isSelect.setVisibility(View.INVISIBLE);
-            } else {
-                FeedViewHolder.isPayed_layout.setBackgroundColor(Color.parseColor("#ff8a80"));
-//                FeedViewHolder.isSelect.setVisibility(View.VISIBLE);
+
+
             }
+
+
 
 
 
@@ -176,13 +178,13 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
                                         if (fe.getIsPayed() || fe.getAmount() == 0) {
                                             Toast.makeText(getActivity(), "قبض قبلا پرداخت شده!", Toast.LENGTH_SHORT).show();
                                         } else {
-                                            FeedViewHolder.isSelect.setChecked(true);
+//                                            FeedViewHolder.isSelect.setChecked(true);
                                             fe.setIsSelected(true);
-                                            ((MainActivity) getActivity()).isCheck = true;
+//                                            ((MainActivity) getActivity()).isCheck = true;
                                             billId = fe.getBillId();
                                             payId = fe.getPayId();
                                             pos = position;
-                                            ((MainActivity) getActivity()).pay_layout.animate().translationY(-20).scaleX((float) 1.2).scaleY((float) 1.2).setDuration(250);
+//                                            ((MainActivity) getActivity()).pay_layout.animate().translationY(-20).scaleX((float) 1.2).scaleY((float) 1.2).setDuration(250);
                                         }
                                     }
                                     return true;
@@ -192,6 +194,17 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
                     popup.show(); //showing popup menu
                 }
             });
+
+            FeedViewHolder.paymentButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //----------
+                    ((MainActivity) getActivity()).payBill("00");
+
+                }
+            });
+
+
 
         }
 
@@ -210,9 +223,9 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         protected void onPreExecute() {
             super.onPreExecute();
             ((MainActivity)getActivity()).waitingDialog.setVisibility(View.VISIBLE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ((MainActivity)getActivity()).addBill.setElevation(0);
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                ((MainActivity)getActivity()).addBill.setElevation(0);
+//            }
 
             GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity)getActivity()).imageView);
             Glide.with(getActivity()).load(R.drawable.gif_loading).into(imageViewTarget);
@@ -238,9 +251,9 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         @Override
         protected void onPostExecute(RSSItem result) {
             ((MainActivity)getActivity()).waitingDialog.setVisibility(View.GONE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ((MainActivity)getActivity()).addBill.setElevation(5);
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                ((MainActivity)getActivity()).addBill.setElevation(5);
+//            }
             if (result != null) {
                 if (result.getAmount().toString().length() > 1) {
                     result.setAmount(Long.valueOf(result.getAmount().toString().substring(0, result.getAmount().toString().length() - 1)));
@@ -268,9 +281,9 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         protected void onPreExecute() {
             super.onPreExecute();
             ((MainActivity)getActivity()).waitingDialog.setVisibility(View.VISIBLE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ((MainActivity)getActivity()).addBill.setElevation(0);
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                ((MainActivity)getActivity()).addBill.setElevation(0);
+//            }
             GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity)getActivity()).imageView);
             Glide.with(getActivity()).load(R.drawable.gif_loading).into(imageViewTarget);
         }
@@ -285,9 +298,9 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         @Override
         protected void onPostExecute(String result) {
             ((MainActivity)getActivity()).waitingDialog.setVisibility(View.GONE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ((MainActivity)getActivity()).addBill.setElevation(5);
-            }
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                ((MainActivity)getActivity()).addBill.setElevation(5);
+//            }
             if (result != null) {
                 if (result.contains("Successful")) {
                     _feed.getItem(pos).setIsPayed(true);
@@ -295,12 +308,12 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
                     new LocalPersistence().writeObjectToFile(getActivity(), _feed, "Bill_List");
                     ((MainActivity) getActivity()).sharedPreferences.edit().putString("card", card).apply();
                     updatePrices();
-                    removeAllCheck(_feed);
+//                    removeAllCheck(_feed);
                     adapter.notifyDataSetChanged();
                     Toast.makeText(getActivity(), "قبض پرداخت شد", Toast.LENGTH_SHORT).show();
                 }
 
-            } else { //...
+            } else {
                 Toast.makeText(getActivity(), "مشکل در برقراری ارتباط!", Toast.LENGTH_SHORT).show();
             }
         }
@@ -321,6 +334,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
             amountBoard.setTextSize(20);
             amount_toman.setVisibility(View.GONE);
             amount_count.setVisibility(View.GONE);
+
         } else {
             amountBoard.setText(getDividedToman(price));
             amountBoard.setTextSize(50);
@@ -355,11 +369,11 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         return stringBuilder.toString();
     }
 
-    public void removeAllCheck(RSSFeed rssFeed) {
-        for (int i = 0; i <rssFeed.getItemCount() ; i++) {
-            rssFeed.getItem(i).setIsSelected(false);
-        }
-    }
+//    public void removeAllCheck(RSSFeed rssFeed) {
+//        for (int i = 0; i <rssFeed.getItemCount() ; i++) {
+//            rssFeed.getItem(i).setIsSelected(false);
+//        }
+//    }
 
     private boolean isNumberExsict(String tel) {
         for (int i = 0; i < _feed.getItemCount(); i++) {
@@ -373,23 +387,24 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         FragmentTransaction ft;
-        switch (v.getId()) {
-            case R.id.add_bill:
-            case R.id.amount_layout:
-                ((MainActivity)getActivity()).isFrag = 3;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ((MainActivity)getActivity()).addBill.setElevation(0);
-                }
-                ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
-                ((MainActivity)getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
-                ft = getFragmentManager().beginTransaction();
-                ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
-                ft.add(android.R.id.content, ((MainActivity)getActivity()).getPhoneFragment).commit();
-                break;
-            default:
-                break;
+        Log.e(TAG, "onClick: 00000000" );
+//        switch (v.getId()) {
+//            case R.id.actionBar_bill:
+//                ((MainActivity)getActivity()).isFrag = 3;
+////                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+////                    ((MainActivity)getActivity()).addBill.setElevation(0);
+////                }
+//                ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
+//                ((MainActivity)getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
+//                ft = getFragmentManager().beginTransaction();
+//                ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
+//                ft.add(android.R.id.content, ((MainActivity)getActivity()).getPhoneFragment).commit();
+//                break;
+//
+//            default:
+//                break;
 
-        }
+
     }
 
     public void sendPhoneNumber(String phoneNumber) {

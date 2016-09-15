@@ -97,588 +97,588 @@
 
         <!--</RelativeLayout>-->
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/actionBar"
-
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
-                android:orientation="vertical">
-
-                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/bill_result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:clickable="true"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true">
-
-                    <RelativeLayout
-                        android:id="@+id/main_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:gravity="right|center">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_toLeftOf="@+id/isPayed"
-                            android:gravity="right"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/tel_number"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="256 KB"
-                                    android:textColor="#4d872c"
-                                    android:textSize="12dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="سرعت"
-                                    android:textColor="#01c5ff" />
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="left"
-                                    android:layout_gravity="left"
-                                    android:layout_marginLeft="30dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:id="@+id/pay_lable"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="پرداخت شده"
-                                        android:textColor="#00e676"
-                                        android:visibility="gone" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="تومان"
-                                        android:textColor="#01c5ff" />
-
-                                    <TextView
-                                        android:id="@+id/amount"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="15,000"
-                                        android:textColor="#4d872c" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="مبلغ"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="1dp"
-                                    android:layout_weight="1"/>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="right"
-                                    android:layout_gravity="right"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="3 G"
-                                        android:textColor="#4d872c"
-                                        android:textSize="12dp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="حجم"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/isPayed"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="right"
-                            android:background="#01c5ff"
-                            android:gravity="center">
-
-                            <CheckBox
-                                android:id="@+id/check"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="false" />
-
-                        </RelativeLayout>
-
-                        <ImageButton
-                            android:id="@+id/edit_dot"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="10dp"
-                            android:adjustViewBounds="true"
-                            android:alpha="0.26"
-                            android:background="@drawable/ic_more_vert_black_36dp"
-                            android:scaleType="fitCenter"
-                            android:visibility="visible" />
-
-                    </RelativeLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/bill_result1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:layout_below="@+id/amount_layout"
-                    android:layout_centerInParent="true"
-                    android:clickable="true"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:gravity="right|center">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="15dp"
-                            android:layout_toLeftOf="@+id/isPayed1"
-                            android:gravity="right"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="512 KB"
-                                    android:textColor="#4d872c"
-                                    android:textSize="12dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="سرعت"
-                                    android:textColor="#01c5ff" />
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="left"
-                                    android:layout_gravity="left"
-                                    android:layout_marginLeft="30dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:id="@+id/pay_lable1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="پرداخت شده"
-                                        android:textColor="#00e676"
-                                        android:visibility="gone" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="تومان"
-                                        android:textColor="#01c5ff" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="25,000"
-                                        android:textColor="#4d872c" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="مبلغ"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="1dp"
-                                    android:layout_weight="1"/>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="right"
-                                    android:layout_gravity="right"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="6 G"
-                                        android:textColor="#4d872c"
-                                        android:textSize="12dp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="حجم"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/isPayed1"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="right"
-                            android:background="#01c5ff"
-                            android:gravity="center">
-
-                            <CheckBox
-                                android:id="@+id/check1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="false" />
-
-                        </RelativeLayout>
-
-                        <ImageButton
-                            android:id="@+id/edit_dot1"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="10dp"
-                            android:adjustViewBounds="true"
-                            android:alpha="0.26"
-                            android:background="@drawable/ic_more_vert_black_36dp"
-                            android:scaleType="fitCenter"
-                            android:visibility="visible" />
-
-                    </RelativeLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:layout_below="@+id/amount_layout"
-                    android:layout_centerInParent="true"
-                    android:clickable="true"
-                    app:cardBackgroundColor="#FFFFFF"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:gravity="right|center">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="15dp"
-                            android:layout_toLeftOf="@+id/isPayed2"
-                            android:gravity="right"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="1 M"
-                                    android:textColor="#4d872c"
-                                    android:textSize="12dp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxLines="1"
-                                    android:text="سرعت"
-                                    android:textColor="#01c5ff" />
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:gravity="right"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="left"
-                                    android:layout_gravity="left"
-                                    android:layout_marginLeft="30dp"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:id="@+id/pay_lable2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="پرداخت شده"
-                                        android:textColor="#00e676"
-                                        android:visibility="gone" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="تومان"
-                                        android:textColor="#01c5ff" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="46,000"
-                                        android:textColor="#4d872c" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="مبلغ"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="0dp"
-                                    android:layout_height="1dp"
-                                    android:layout_weight="1"/>
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="right"
-                                    android:layout_gravity="right"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="10dp"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="12 G"
-                                        android:textColor="#4d872c"
-                                        android:textSize="12dp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:ellipsize="end"
-                                        android:gravity="center"
-                                        android:maxLines="1"
-                                        android:text="حجم"
-                                        android:textColor="#01c5ff" />
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/isPayed2"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="right"
-                            android:background="#01c5ff"
-                            android:gravity="center">
-
-                            <CheckBox
-                                android:id="@+id/check2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="false"/>
-
-                        </RelativeLayout>
-
-                        <ImageButton
-                            android:id="@+id/edit_dot2"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="10dp"
-                            android:adjustViewBounds="true"
-                            android:alpha="0.26"
-                            android:background="@drawable/ic_more_vert_black_36dp"
-                            android:scaleType="fitCenter"
-                            android:visibility="visible" />
-
-                    </RelativeLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-        </ScrollView>
+        <!--<ScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/actionBar"-->
+
+            <!--&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="200dp"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+                    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                    <!--android:id="@+id/bill_result"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="70dp"-->
+                    <!--android:clickable="true"-->
+                    <!--app:cardBackgroundColor="#FFFFFF"-->
+                    <!--app:cardElevation="2dp"-->
+                    <!--app:cardUseCompatPadding="true">-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:id="@+id/main_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="70dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:gravity="right|center">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginRight="15dp"-->
+                            <!--android:layout_marginEnd="15dp"-->
+                            <!--android:layout_toLeftOf="@+id/isPayed"-->
+                            <!--android:gravity="right"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<TextView-->
+                                    <!--android:id="@+id/tel_number"-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_marginRight="10dp"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="256 KB"-->
+                                    <!--android:textColor="#4d872c"-->
+                                    <!--android:textSize="12dp" />-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="سرعت"-->
+                                    <!--android:textColor="#01c5ff" />-->
+
+                            <!--</LinearLayout>-->
+
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="right"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="left"-->
+                                    <!--android:layout_gravity="left"-->
+                                    <!--android:layout_marginLeft="30dp"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:id="@+id/pay_lable"-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="پرداخت شده"-->
+                                        <!--android:textColor="#00e676"-->
+                                        <!--android:visibility="gone" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="تومان"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:id="@+id/amount"-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginLeft="10dp"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="15,000"-->
+                                        <!--android:textColor="#4d872c" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="مبلغ"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                                <!--<View-->
+                                    <!--android:layout_width="0dp"-->
+                                    <!--android:layout_height="1dp"-->
+                                    <!--android:layout_weight="1"/>-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="right"-->
+                                    <!--android:layout_gravity="right"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="3 G"-->
+                                        <!--android:textColor="#4d872c"-->
+                                        <!--android:textSize="12dp" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="حجم"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                            <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/isPayed"-->
+                            <!--android:layout_width="70dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_gravity="right"-->
+                            <!--android:background="#01c5ff"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<CheckBox-->
+                                <!--android:id="@+id/check"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:checked="false" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<ImageButton-->
+                            <!--android:id="@+id/edit_dot"-->
+                            <!--android:layout_width="25dp"-->
+                            <!--android:layout_height="25dp"-->
+                            <!--android:layout_alignParentLeft="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_marginLeft="8dp"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:adjustViewBounds="true"-->
+                            <!--android:alpha="0.26"-->
+                            <!--android:background="@drawable/ic_more_vert_black_36dp"-->
+                            <!--android:scaleType="fitCenter"-->
+                            <!--android:visibility="visible" />-->
+
+                    <!--</RelativeLayout>-->
+
+
+                <!--</android.support.v7.widget.CardView>-->
+
+                <!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+                    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                    <!--android:id="@+id/bill_result1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="70dp"-->
+                    <!--android:layout_below="@+id/amount_layout"-->
+                    <!--android:layout_centerInParent="true"-->
+                    <!--android:clickable="true"-->
+                    <!--app:cardBackgroundColor="#FFFFFF"-->
+                    <!--app:cardElevation="2dp"-->
+                    <!--app:cardUseCompatPadding="true">-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="70dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:gravity="right|center">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginRight="15dp"-->
+                            <!--android:layout_toLeftOf="@+id/isPayed1"-->
+                            <!--android:gravity="right"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_marginRight="10dp"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="512 KB"-->
+                                    <!--android:textColor="#4d872c"-->
+                                    <!--android:textSize="12dp" />-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="سرعت"-->
+                                    <!--android:textColor="#01c5ff" />-->
+
+                            <!--</LinearLayout>-->
+
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="right"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="left"-->
+                                    <!--android:layout_gravity="left"-->
+                                    <!--android:layout_marginLeft="30dp"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:id="@+id/pay_lable1"-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="پرداخت شده"-->
+                                        <!--android:textColor="#00e676"-->
+                                        <!--android:visibility="gone" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="تومان"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginLeft="10dp"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="25,000"-->
+                                        <!--android:textColor="#4d872c" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="مبلغ"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                                <!--<View-->
+                                    <!--android:layout_width="0dp"-->
+                                    <!--android:layout_height="1dp"-->
+                                    <!--android:layout_weight="1"/>-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="right"-->
+                                    <!--android:layout_gravity="right"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="6 G"-->
+                                        <!--android:textColor="#4d872c"-->
+                                        <!--android:textSize="12dp" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="حجم"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                            <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/isPayed1"-->
+                            <!--android:layout_width="70dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_gravity="right"-->
+                            <!--android:background="#01c5ff"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<CheckBox-->
+                                <!--android:id="@+id/check1"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:checked="false" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<ImageButton-->
+                            <!--android:id="@+id/edit_dot1"-->
+                            <!--android:layout_width="25dp"-->
+                            <!--android:layout_height="25dp"-->
+                            <!--android:layout_alignParentLeft="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_marginLeft="8dp"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:adjustViewBounds="true"-->
+                            <!--android:alpha="0.26"-->
+                            <!--android:background="@drawable/ic_more_vert_black_36dp"-->
+                            <!--android:scaleType="fitCenter"-->
+                            <!--android:visibility="visible" />-->
+
+                    <!--</RelativeLayout>-->
+
+
+                <!--</android.support.v7.widget.CardView>-->
+
+                <!--<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+                    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="70dp"-->
+                    <!--android:layout_below="@+id/amount_layout"-->
+                    <!--android:layout_centerInParent="true"-->
+                    <!--android:clickable="true"-->
+                    <!--app:cardBackgroundColor="#FFFFFF"-->
+                    <!--app:cardElevation="2dp"-->
+                    <!--app:cardUseCompatPadding="true">-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="70dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:gravity="right|center">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginRight="15dp"-->
+                            <!--android:layout_toLeftOf="@+id/isPayed2"-->
+                            <!--android:gravity="right"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_marginRight="10dp"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="1 M"-->
+                                    <!--android:textColor="#4d872c"-->
+                                    <!--android:textSize="12dp" />-->
+
+                                <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:maxLines="1"-->
+                                    <!--android:text="سرعت"-->
+                                    <!--android:textColor="#01c5ff" />-->
+
+                            <!--</LinearLayout>-->
+
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="right"-->
+                                <!--android:gravity="right"-->
+                                <!--android:orientation="horizontal">-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="left"-->
+                                    <!--android:layout_gravity="left"-->
+                                    <!--android:layout_marginLeft="30dp"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:id="@+id/pay_lable2"-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="پرداخت شده"-->
+                                        <!--android:textColor="#00e676"-->
+                                        <!--android:visibility="gone" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="تومان"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginLeft="10dp"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="46,000"-->
+                                        <!--android:textColor="#4d872c" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="مبلغ"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                                <!--<View-->
+                                    <!--android:layout_width="0dp"-->
+                                    <!--android:layout_height="1dp"-->
+                                    <!--android:layout_weight="1"/>-->
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:gravity="right"-->
+                                    <!--android:layout_gravity="right"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:layout_marginRight="10dp"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="12 G"-->
+                                        <!--android:textColor="#4d872c"-->
+                                        <!--android:textSize="12dp" />-->
+
+                                    <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:ellipsize="end"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:maxLines="1"-->
+                                        <!--android:text="حجم"-->
+                                        <!--android:textColor="#01c5ff" />-->
+
+                                <!--</LinearLayout>-->
+
+                            <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/isPayed2"-->
+                            <!--android:layout_width="70dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_gravity="right"-->
+                            <!--android:background="#01c5ff"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<CheckBox-->
+                                <!--android:id="@+id/check2"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:checked="false"/>-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<ImageButton-->
+                            <!--android:id="@+id/edit_dot2"-->
+                            <!--android:layout_width="25dp"-->
+                            <!--android:layout_height="25dp"-->
+                            <!--android:layout_alignParentLeft="true"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:layout_marginLeft="8dp"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:adjustViewBounds="true"-->
+                            <!--android:alpha="0.26"-->
+                            <!--android:background="@drawable/ic_more_vert_black_36dp"-->
+                            <!--android:scaleType="fitCenter"-->
+                            <!--android:visibility="visible" />-->
+
+                    <!--</RelativeLayout>-->
+
+
+                <!--</android.support.v7.widget.CardView>-->
+
+            <!--</LinearLayout>-->
+        <!--</ScrollView>-->
 
 
         <LinearLayout

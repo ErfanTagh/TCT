@@ -152,237 +152,237 @@
             android:background="#FFFFFF"
             android:clickable="true">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/version">
+            <!--<ScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_above="@+id/version">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
 
-                    <include layout="@layout/nav_header_main" />
+                    <!--<include layout="@layout/nav_header_main" />-->
 
-                    <LinearLayout
-                        android:id="@+id/adslLA"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/adslLA"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:id="@+id/adsText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="خرید شارژ ADSL"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:id="@+id/adsText"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="خرید شارژ ADSL"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:id="@+id/internationalLA"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/internationalLA"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:id="@+id/internationalText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="تماس بین المللی"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:id="@+id/internationalText"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="تماس بین المللی"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:id="@+id/problemLA"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/problemLA"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:id="@+id/problemText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="خرابی تلفن"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:id="@+id/problemText"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="خرابی تلفن"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="20dp"
-                        android:alpha="0.26"
-                        android:background="#858687" />
+                    <!--<View-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="0.5dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:layout_marginLeft="0dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:alpha="0.26"-->
+                        <!--android:background="#858687" />-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="شبکه هوشمند IN(بزودی)"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="شبکه هوشمند IN(بزودی)"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="دریافت ریز مکالمات(بزودی)"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="دریافت ریز مکالمات(بزودی)"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="تعویض شماره(بزودی)"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="تعویض شماره(بزودی)"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="true"
-                            android:gravity="right|center"
-                            android:onClick="onClick"
-                            android:text="تغییر مکان(بزودی)"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="true"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:onClick="onClick"-->
+                            <!--android:text="تغییر مکان(بزودی)"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="20dp"
-                        android:alpha="0.26"
-                        android:background="#858687" />
+                    <!--<View-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="0.5dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:layout_marginLeft="0dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:alpha="0.26"-->
+                        <!--android:background="#858687" />-->
 
-                    <LinearLayout
-                        android:id="@+id/exitLA"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right|center"
-                        android:onClick="onClick"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/exitLA"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="20dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:gravity="right|center"-->
+                        <!--android:onClick="onClick"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right|center"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.54"
-                            android:clickable="false"
-                            android:gravity="right|center"
-                            android:text="خروج"
-                            android:textColor="#000000"
-                            android:textSize="14dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="right|center"-->
+                            <!--android:layout_marginRight="10dp"-->
+                            <!--android:alpha="0.54"-->
+                            <!--android:clickable="false"-->
+                            <!--android:gravity="right|center"-->
+                            <!--android:text="خروج"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="14dp" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-            </ScrollView>
+            <!--</ScrollView>-->
 
             <TextView
                 android:id="@+id/version"

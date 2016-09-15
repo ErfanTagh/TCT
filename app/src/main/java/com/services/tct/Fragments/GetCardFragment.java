@@ -213,9 +213,9 @@ public class GetCardFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ((MainActivity)getActivity()).addBill.setElevation(0);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            ((MainActivity)getActivity()).addBill.setElevation(0);
+//        }
         ((MainActivity) getActivity()).darkDialog.setVisibility(View.VISIBLE);
     }
 
@@ -240,9 +240,9 @@ public class GetCardFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ((MainActivity)getActivity()).addBill.setElevation(5);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            ((MainActivity)getActivity()).addBill.setElevation(5);
+//        }
         ((MainActivity) getActivity()).isFrag = 0;
 
         if (isCommit) {

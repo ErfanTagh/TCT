@@ -12,12 +12,12 @@ public class Gift extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gift_main);
 
-        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
 
     }

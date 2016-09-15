@@ -42,7 +42,7 @@
                 android:layout_toRightOf="@+id/pre_text"
                 android:background="@android:color/transparent"
                 android:gravity="right"
-                android:hint="شماره تلفنت رو وارد کن"
+                android:hint="شماره تلفن رو وارد کن"
                 android:inputType="phone"
                 android:maxLength="8"
                 android:paddingBottom="6dp"

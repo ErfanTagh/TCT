@@ -24,8 +24,8 @@ public class GetPhoneFragment extends Fragment {
     Typeface typeface;
     boolean isCommit = false;
     private String phone = "";
-    private int _xDelta;
-    private int _yDelta;
+//    private int _xDelta;
+//    private int _yDelta;
 
 
     public static GetPhoneFragment newInstance() {
@@ -166,9 +166,9 @@ public class GetPhoneFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ((MainActivity)getActivity()).addBill.setElevation(0);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            ((MainActivity)getActivity()).addBill.setElevation(0);
+//        }
     }
 
     public void hideKey(View view) {
@@ -181,9 +181,9 @@ public class GetPhoneFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ((MainActivity)getActivity()).addBill.setElevation(5);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            ((MainActivity)getActivity()).addBill.setElevation(5);
+//        }
         ((MainActivity) getActivity()).isFrag = 0;
 
         if (isCommit) {
