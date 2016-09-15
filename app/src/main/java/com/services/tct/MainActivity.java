@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pay_text = (TextView) findViewById(R.id.pay_text);
         pay_layout = (RelativeLayout) findViewById(R.id.pay_layout);
         imageView = (ImageView) findViewById(R.id.image_view);
-        selected_card = (ImageView) findViewById(R.id.selected_card_back);
-        selected_report = (ImageView) findViewById(R.id.selected_card_back2);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        Typeface typeface2 = Typeface.createFromAsset(getAssets(), "IRANSansMobile(FaNum)_Bold.ttf");
-        pay_text.setTypeface(typeface2);
+//        selected_card = (ImageView) findViewById(R.id.selected_card_back);
+//        selected_report = (ImageView) findViewById(R.id.selected_card_back2);
+//        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        Typeface typeface2 = Typeface.createFromAsset(getAssets(), "IRANSansMobile(FaNum)_Bold.ttf");
+//        pay_text.setTypeface(typeface2);
 
         FragmentManager fm = getFragmentManager();
         if (fm != null) { //?
