@@ -35,14 +35,14 @@ import com.services.tct.Utilities.LocalPersistence;
 
 import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
-public class AddBillFragment extends Fragment implements View.OnClickListener{
+public class AddBillFragment extends Fragment implements View.OnClickListener {
 
     TextView amountBoard, amount_toman, amount_count;
     RecyclerView recBills;
     ListAdapter adapter;
     RSSFeed _feed;
     long payId = 0, billId = 0, price = 0;
-    int count=0, pos = 0;
+    int count = 0, pos = 0;
 //    LinearLayout actionBarBill;
 
     public static AddBillFragment newInstance() {
@@ -62,18 +62,17 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         v.findViewById(R.id.actionBar_bill).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e(TAG, "onClick: 00000000" );
+                Log.e(TAG, "onClick: 00000000");
                 FragmentTransaction ft;
-                ((MainActivity)getActivity()).isFrag = 3;
+                ((MainActivity) getActivity()).isFrag = 3;
 //                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                    ((MainActivity)getActivity()).addBill.setElevation(0);
 //                }
-                ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
-                ((MainActivity)getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
+                ((MainActivity) getActivity()).darkDialog.setVisibility(View.VISIBLE);
+                ((MainActivity) getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
                 ft = getFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
-                ft.add(android.R.id.content, ((MainActivity)getActivity()).getPhoneFragment).commit();
-
+                ft.add(android.R.id.content, ((MainActivity) getActivity()).getPhoneFragment).commit();
 
 
             }
@@ -88,8 +87,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         LocalPersistence localPersistence = new LocalPersistence();
         if (localPersistence.readObjectFromFile(getActivity(), "Bill_List") == null) {
             _feed = new RSSFeed();
-        }
-        else
+        } else
             _feed = (RSSFeed) localPersistence.readObjectFromFile(getActivity(), "Bill_List");
 
 //        removeAllCheck(_feed);
@@ -112,8 +110,8 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
 
     public class FeedViewHolder extends RecyclerView.ViewHolder {
         protected RelativeLayout main_layout;//,isPayed_layout
-        protected TextView phone, amount, pay_label;
-//        protected CheckBox isSelect;
+        protected TextView phone, amount, pay_label, isPayLabel;
+        //        protected CheckBox isSelect;
         ImageButton edit_more;
         Button paymentButton;
 
@@ -126,13 +124,15 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
             main_layout = (RelativeLayout) v.findViewById(R.id.main_layout);
 //            isPayed_layout = (RelativeLayout) v.findViewById(R.id.isPayed);
             edit_more = (ImageButton) v.findViewById(R.id.edit_dot);
-            paymentButton=(Button) v.findViewById(R.id.paymentButton);
+            paymentButton = (Button) v.findViewById(R.id.paymentButton);
+            isPayLabel = (TextView) v.findViewById(R.id.is_pay_label);
         }
     }
 
     public class ListAdapter extends RecyclerView.Adapter<FeedViewHolder> {
 
-        public ListAdapter() {}
+        public ListAdapter() {
+        }
 
         @Override
         public int getItemCount() {
@@ -145,19 +145,16 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
             final RSSItem fe = _feed.getItem(position);
             FeedViewHolder.phone.setText(fe.getTelNo().toString().substring(2));
             FeedViewHolder.amount.setText(getDividedToman(fe.getAmount()) + "");
+
             if (fe.getIsPayed())
-            {
+                FeedViewHolder.isPayLabel.setVisibility(View.VISIBLE);
+            else
+                FeedViewHolder.isPayLabel.setVisibility(View.GONE);
 
+
+            if (fe.getIsPayed() || fe.getAmount() == 0) {
                 FeedViewHolder.paymentButton.setVisibility(View.GONE);
-
-
-
-
             }
-
-
-
-
 
             FeedViewHolder.edit_more.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -199,11 +196,11 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
                 @Override
                 public void onClick(View v) {
                     //----------
+                    pos = position;
                     ((MainActivity) getActivity()).payBill("00");
 
                 }
             });
-
 
 
         }
@@ -219,15 +216,16 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
     private class getBillInfo extends AsyncTask<String, Void, RSSItem> {
 
         boolean repeat = false;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            ((MainActivity)getActivity()).waitingDialog.setVisibility(View.VISIBLE);
+            ((MainActivity) getActivity()).waitingDialog.setVisibility(View.VISIBLE);
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                ((MainActivity)getActivity()).addBill.setElevation(0);
 //            }
 
-            GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity)getActivity()).imageView);
+            GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity) getActivity()).imageView);
             Glide.with(getActivity()).load(R.drawable.gif_loading).into(imageViewTarget);
 
         }
@@ -250,7 +248,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
 
         @Override
         protected void onPostExecute(RSSItem result) {
-            ((MainActivity)getActivity()).waitingDialog.setVisibility(View.GONE);
+            ((MainActivity) getActivity()).waitingDialog.setVisibility(View.GONE);
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                ((MainActivity)getActivity()).addBill.setElevation(5);
 //            }
@@ -258,7 +256,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
                 if (result.getAmount().toString().length() > 1) {
                     result.setAmount(Long.valueOf(result.getAmount().toString().substring(0, result.getAmount().toString().length() - 1)));
                 }
-                Log.e("55555555555", "onPostExecute: "+result.getAmount() );
+                Log.e("55555555555", "onPostExecute: " + result.getAmount());
                 _feed.addItem(result);
                 updatePrices();
 
@@ -280,11 +278,11 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            ((MainActivity)getActivity()).waitingDialog.setVisibility(View.VISIBLE);
+            ((MainActivity) getActivity()).waitingDialog.setVisibility(View.VISIBLE);
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                ((MainActivity)getActivity()).addBill.setElevation(0);
 //            }
-            GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity)getActivity()).imageView);
+            GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(((MainActivity) getActivity()).imageView);
             Glide.with(getActivity()).load(R.drawable.gif_loading).into(imageViewTarget);
         }
 
@@ -292,12 +290,12 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         protected String doInBackground(String... params) {
             DOMParser domParser = new DOMParser();
             card = params[0];
-            return domParser.payBill("09127764165",payId,billId,params[0],params[1]);
+            return domParser.payBill("09127764165", payId, billId, params[0], params[1]);
         }
 
         @Override
         protected void onPostExecute(String result) {
-            ((MainActivity)getActivity()).waitingDialog.setVisibility(View.GONE);
+            ((MainActivity) getActivity()).waitingDialog.setVisibility(View.GONE);
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                ((MainActivity)getActivity()).addBill.setElevation(5);
 //            }
@@ -340,27 +338,27 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
             amountBoard.setTextSize(50);
             amount_toman.setVisibility(View.VISIBLE);
             amount_count.setVisibility(View.VISIBLE);
-            amount_count.setText(count +" "+ "قبض");
+            amount_count.setText(count + " " + "قبض");
         }
     }
 
     private String getDividedToman(Long price) {
         if (price == 0) {
-            return price+"";
+            return price + "";
         }
-        Log.e("00000000", "getDividedToman: "+price );
+        Log.e("00000000", "getDividedToman: " + price);
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < price.toString().length(); i+=3) {
+        for (int i = 0; i < price.toString().length(); i += 3) {
             try {
-                if (i==0)
+                if (i == 0)
                     stringBuilder.insert(0, price.toString().substring(price.toString().length() - 3 - i, price.toString().length() - i));
                 else
-                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 3 - i, price.toString().length()-i)+",");
+                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 3 - i, price.toString().length() - i) + ",");
             } catch (Exception e) {
                 try {
-                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 2 - i, price.toString().length()-i)+",");
+                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 2 - i, price.toString().length() - i) + ",");
                 } catch (Exception e1) {
-                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 1 - i, price.toString().length()-i)+",");
+                    stringBuilder.insert(0, price.toString().substring(price.toString().length() - 1 - i, price.toString().length() - i) + ",");
                 }
             }
 
@@ -377,7 +375,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
 
     private boolean isNumberExsict(String tel) {
         for (int i = 0; i < _feed.getItemCount(); i++) {
-            if (_feed.getItem(i).getTelNo().toString().equals("21"+tel)) { //Why False ?
+            if (_feed.getItem(i).getTelNo().toString().equals("21" + tel)) { //Why False ?
                 return false;
             }
         }
@@ -387,7 +385,7 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         FragmentTransaction ft;
-        Log.e(TAG, "onClick: 00000000" );
+        Log.e(TAG, "onClick: 00000000");
 //        switch (v.getId()) {
 //            case R.id.actionBar_bill:
 //                ((MainActivity)getActivity()).isFrag = 3;
@@ -411,8 +409,8 @@ public class AddBillFragment extends Fragment implements View.OnClickListener{
         new getBillInfo().execute(phoneNumber);
     }
 
-    public void sendPay(String card,String pin) {
-        new payBill().execute(card,pin);
+    public void sendPay(String card, String pin) {
+        new payBill().execute(card, pin);
     }
 
     @Override

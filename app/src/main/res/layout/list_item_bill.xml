@@ -6,6 +6,8 @@
     android:onClick="onClick"
     app:cardBackgroundColor="#FFFFFF"
     app:cardElevation="2dp"
+    app:contentPadding="8dp"
+    android:layout_margin="5dp"
     app:cardUseCompatPadding="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -15,103 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
-
-        <LinearLayout
-            android:id="@+id/liLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/edit_dot"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="8dp"
-            android:gravity="right"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="horizontal"
-                android:layout_marginRight="24dp"
-
-
-                >
-
-                <TextView
-                    android:id="@+id/tel_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:layout_marginRight="10dp"
-                    android:text="Singer Name"
-                    android:textColor="#4d872c"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="شماره تلفن"
-                    android:textColor="#01c5ff" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="horizontal"
-                android:layout_marginRight="24dp"
-                >
-
-                <TextView
-                    android:id="@+id/pay_lable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    android:maxLines="1"
-                    android:layout_marginRight="10dp"
-                    android:text="پرداخت شده"
-                    android:textColor="#00e676" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="تومان"
-                    android:textColor="#01c5ff" />
-
-                <TextView
-                    android:id="@+id/amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:maxLines="1"
-                    android:text="Song Name"
-                    android:textColor="#4d872c" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="مبلغ"
-                    android:textColor="#01c5ff" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
 
         <Button
@@ -157,7 +62,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
@@ -165,6 +70,119 @@
             android:background="@drawable/ic_more_vert_black_36dp"
             android:scaleType="fitCenter"
             android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/is_pay_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/edit_dot"
+            android:layout_marginRight="10dp"
+            android:text="پرداخت شده"
+            android:textColor="#FA5959"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:id="@+id/liLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:layout_alignTop="@+id/edit_dot"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_marginRight="24dp">
+
+                <TextView
+                    android:id="@+id/tel_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:text="Singer Name"
+                    android:textColor="#4d872c"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="شماره تلفن"
+                    android:textSize="15dp"
+                    android:textColor="#01c5ff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:layout_marginRight="24dp"
+                >
+
+                <TextView
+                    android:id="@+id/pay_lable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:text="پرداخت شده"
+                    android:textColor="#00e676" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="تومان"
+                    android:textSize="15dp"
+                    android:textColor="#01c5ff" />
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:maxLines="1"
+                    android:textSize="15dp"
+                    android:text="Song Name"
+                    android:textColor="#4d872c" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="مبلغ"
+                    android:textSize="15dp"
+                    android:textColor="#01c5ff" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

@@ -75,6 +75,7 @@ public class GetPhoneFragment extends Fragment {
                     view.findViewById(R.id.edittext_back).setBackgroundResource(R.drawable.register_bg_ed_stroke);
                     hideKey(view);
                 } else {
+                    view.findViewById(R.id.edittext_back).setBackgroundResource(R.drawable.register_bg_ed);
                 }
             }
 
