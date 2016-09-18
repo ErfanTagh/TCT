@@ -1,6 +1,7 @@
 package com.services.tct.Fragments;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
@@ -13,7 +14,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
+import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
+import com.jjoe64.graphview.series.Series;
 import com.services.tct.MainActivity;
 import com.services.tct.Parser.RSSFeed;
 import com.services.tct.Parser.RSSItem;
@@ -25,6 +33,8 @@ public class ReportFragments extends Fragment {
     RecyclerView recBills;
     ListAdapter adapter;
     RSSFeed _feed = new RSSFeed();
+
+    GraphView graphView;
 
     public static ReportFragments newInstance() {
         ReportFragments fragmentDemo = new ReportFragments();
@@ -38,6 +48,7 @@ public class ReportFragments extends Fragment {
         RSSFeed _feed_temp;
         LocalPersistence localPersistence = new LocalPersistence();
         _feed_temp = (RSSFeed) localPersistence.readObjectFromFile(getActivity(), "Bill_List");
+
 
         if (_feed_temp != null) {
             for (int i = 0; i < _feed_temp.getItemCount(); i++) {
@@ -53,6 +64,29 @@ public class ReportFragments extends Fragment {
             recBills.setLayoutManager(llm);
             adapter.notifyDataSetChanged();
         }
+
+        GraphView graphView = (GraphView) v.findViewById(R.id.graph);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+
+
+
+        });
+        series.setColor(Color.GREEN);
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(10);
+        series.setThickness(4);
+
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                Toast.makeText(getActivity().getApplicationContext(),"Series1: On Data Point clicked: "+dataPoint, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        graphView.addSeries(series);
+
+
+
 //        ((MainActivity) getActivity()).selected_report.setVisibility(View.VISIBLE);
         return v;
     }
@@ -155,5 +189,7 @@ public class ReportFragments extends Fragment {
         }
         return stringBuilder.toString();
     }
+
+
 
 }
