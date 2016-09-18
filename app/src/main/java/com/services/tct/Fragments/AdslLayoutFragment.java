@@ -49,7 +49,7 @@ public class AdslLayoutFragment extends Fragment {
                 ((MainActivity)getActivity()).darkDialog.setVisibility(View.VISIBLE);
                 ((MainActivity)getActivity()).getPhoneFragment = GetPhoneFragment.newInstance();
                 ft = getFragmentManager().beginTransaction();
-                ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
+                ft.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_right);
                 ft.add(android.R.id.content, ((MainActivity)getActivity()).getPhoneFragment).commit();
             }
         });

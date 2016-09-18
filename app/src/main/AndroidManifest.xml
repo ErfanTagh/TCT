@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme.NoActionBar">
         <!--.Splash-->
         <activity android:name=".Splash"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,18 +25,6 @@
         </activity>
 
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".adsl"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".problem"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".international"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Gift"
             android:screenOrientation="portrait"/>
 
     </application>

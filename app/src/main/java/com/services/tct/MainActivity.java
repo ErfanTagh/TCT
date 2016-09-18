@@ -41,17 +41,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public GetPhoneFragment getPhoneFragment;
     public GetCardFragment getCardFragment;
     public AddBillFragment addBillFragment;
-    public CardListFragment cardListFragment;
     public ReportFragments reportFragments;
     public ServicesLayoutFragment servicesLayoutFragment;
     public AppLayoutFragment appLayoutFragment;
     public AdslLayoutFragment adslLayoutFragment;
-    public ImageView imageView, selected_card, selected_report;
+    public ImageView imageView, selected_card;
     public Button gift,reportList,reportList2,reportList3,reportList4,reportList5;
     public TextView appTextView,billTextView,servicesTextView,adslTextView,accountingTextView;
 
     public LinearLayout appLayout,billLayout,servicesLayout,adslLayout,accountingLayout;
-//    public boolean isCheck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         darkDialog = (RelativeLayout) findViewById(R.id.dark_dialog);
         sharedPreferences = getSharedPreferences("TCT", 0);
         waitingDialog = (RelativeLayout) findViewById(R.id.wait_layout);
-//        addCard = (Button) findViewById(R.id.add_card_button);
         gift = (Button) findViewById(R.id.gift_open);
-//        pay_text = (TextView) findViewById(R.id.pay_text);
-//        pay_layout = (RelativeLayout) findViewById(R.id.pay_layout);
         imageView = (ImageView) findViewById(R.id.image_view);
 
         appTextView=(TextView) findViewById(R.id.app_textview);
@@ -82,12 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         servicesLayout=(LinearLayout) findViewById(R.id.services_layout);
         adslLayout=(LinearLayout) findViewById(R.id.adsl_layout);
         accountingLayout=(LinearLayout) findViewById(R.id.accounting_layout);
-
-//        selected_card = (ImageView) findViewById(R.id.selected_card_back);
-//        selected_report = (ImageView) findViewById(R.id.selected_card_back2);
-//        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        Typeface typeface2 = Typeface.createFromAsset(getAssets(), "IRANSansMobile(FaNum)_Bold.ttf");
-//        pay_text.setTypeface(typeface2);
 
         reportList=(Button) findViewById(R.id.report_list);
         reportList2 = (Button) findViewById(R.id.report_list2);
@@ -165,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 accountingLayout.setAlpha((float) 0.45);
 
                 break;
-
 
             case R.id.services_layout:
 
@@ -260,68 +248,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-
-
-
-
-
-
-////                if (isCheck) {
-//                isFrag = 2;
-//
-////                } else
-////                    Toast.makeText(MainActivity.this, "قبضی انتخاب نشده!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.menu_open:
-//                drawer.openDrawer(Gravity.RIGHT);
-//                break;
-//            case R.id.adslLA: //?
-//            case R.id.adsText:
-//                drawer.closeDrawer(Gravity.RIGHT);
-//                startActivity(new Intent(MainActivity.this, adsl.class));
-//                break;
-//            case R.id.card_list:
-//                if (isFrag != 1) {
-////                    if (isCheck) { //?
-////                        pay_layout.animate().translationY(0).scaleX((float) 1).scaleY((float) 1).setDuration(250);
-////                        isCheck = false;
-////                    }
-//                    gift.setVisibility(View.INVISIBLE);
-//                    cardListFragment = new CardListFragment().newInstance();
-//                    getFragmentManager().beginTransaction().replace(R.id.detail_fragment, cardListFragment).addToBackStack(null).commit();
-//                    isFrag = 1;
-//                }
-//                break;
-//            case R.id.report_list:
-//                if (isFrag != 4) {
-////                    if (isCheck) {
-////                        pay_layout.animate().translationY(0).scaleX((float) 1).scaleY((float) 1).setDuration(250);
-////                        isCheck = false;
-////                    }
-//                    gift.setVisibility(View.INVISIBLE);
-//                    reportFragments = new ReportFragments().newInstance();
-//                    getFragmentManager().beginTransaction().replace(R.id.detail_fragment, reportFragments).addToBackStack(null).commit();
-//                    isFrag = 4;
-//                }
-//                break;
-//            case R.id.gift_open:
-//                drawer.closeDrawer(Gravity.RIGHT);
-//                startActivity(new Intent(MainActivity.this, Gift.class));
-//                break;
-//            case R.id.problemLA: //?
-//            case R.id.problemText:
-////                drawer.closeDrawer(Gravity.RIGHT);
-//                startActivity(new Intent(MainActivity.this, problem.class));
-//                break;
-//            case R.id.internationalLA:
-//            case R.id.internationalText:
-////                drawer.closeDrawer(Gravity.RIGHT);
-//                startActivity(new Intent(MainActivity.this, international.class));
-//                break;
-//            case R.id.exitLA:
-//                drawer.closeDrawer(Gravity.RIGHT);
-//                finish();
-//                break;
             default:
                 break;
 
@@ -332,8 +258,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         darkDialog.setVisibility(View.VISIBLE);
         getCardFragment = GetCardFragment.newInstance();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
-        ft.add(android.R.id.content, getCardFragment).commit();//?
+        ft.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_right);
+        ft.add(android.R.id.content, getCardFragment).addToBackStack(null).commit();
     }
 
 

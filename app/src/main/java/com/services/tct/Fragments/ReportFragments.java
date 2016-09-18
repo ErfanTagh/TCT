@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -28,11 +29,15 @@ import com.services.tct.Parser.RSSItem;
 import com.services.tct.R;
 import com.services.tct.Utilities.LocalPersistence;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class ReportFragments extends Fragment {
 
     RecyclerView recBills;
     ListAdapter adapter;
     RSSFeed _feed = new RSSFeed();
+
 
     GraphView graphView;
 
@@ -66,12 +71,8 @@ public class ReportFragments extends Fragment {
         }
 
         GraphView graphView = (GraphView) v.findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-
-
-
-        });
-        series.setColor(Color.GREEN);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(generateData());
+        series.setColor(Color.BLUE);
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(10);
         series.setThickness(4);
@@ -84,12 +85,41 @@ public class ReportFragments extends Fragment {
         });
 
         graphView.addSeries(series);
+        graphView.setTitle("نمودار قبض ها");
+//        graphView.setTitleColor(Color.BLACK);
+//        graphView.setTitleTextSize(25f);
+
+
+
+        graphView.getViewport().setYAxisBoundsManual(true);
+        graphView.getViewport().setMinY(0);
+        graphView.getViewport().setMaxY(getMaxFeed());
+        graphView.getViewport().setScrollable(true);
+        graphView.getGridLabelRenderer().setGridColor(Color.BLACK);
+
+        graphView.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getActivity()));
+        graphView.getGridLabelRenderer().setNumHorizontalLabels(_feed.getItemCount());
+
+        graphView.getViewport().setXAxisBoundsManual(true);
+//        graphView.getViewport().setMinX(0);
+//        graphView.getViewport().setMaxX(40);
+
+
+
+
+
+        graphView.getGridLabelRenderer().setHumanRounding(false);
+
+
+
 
 
 
 //        ((MainActivity) getActivity()).selected_report.setVisibility(View.VISIBLE);
         return v;
     }
+
+
 
 
     public class FeedViewHolder extends RecyclerView.ViewHolder {
@@ -166,6 +196,39 @@ public class ReportFragments extends Fragment {
 //        ((MainActivity) getActivity()).gift.setVisibility(View.VISIBLE);
 //        ((MainActivity) getActivity()).selected_report.setVisibility(View.GONE);
 //    }
+
+
+
+    private DataPoint[] generateData() {
+
+        int count = _feed.getItemCount();
+        Calendar calendar = Calendar.getInstance();
+        DataPoint[] values = new DataPoint[count];
+        for (int i=0; i<_feed.getItemCount(); i++) {
+            Date x = calendar.getTime();
+            calendar.add(Calendar.DATE, 1);
+            double y = _feed.getItem(i).getAmount();
+            DataPoint v = new DataPoint(x, y);
+            values[i] = v;
+
+        }
+        return values;
+    }
+
+    public double getMaxFeed(){
+
+
+//        int count = _feed.getItemCount();
+        double max=0;
+        for (int i=0; i<_feed.getItemCount(); i++) {
+
+            if (_feed.getItem(i).getAmount()>max)
+            {
+                max=_feed.getItem(i).getAmount();
+            }
+        }
+        return max;
+    }
 
     private String getDividedToman(Long price) {
         if (price == 0) {

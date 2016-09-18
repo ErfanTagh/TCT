@@ -36,8 +36,8 @@ public class GetCardFragment extends Fragment {
         typeface = Typeface.createFromAsset(getActivity().getAssets(), "IRANSansMobile(FaNum)_Bold.ttf");
         View v = inflater.inflate(R.layout.get_pay_card, null);
         show_dialog_get_pay_card(v);
-        getActivity().getWindow().setSoftInputMode( //?
-                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        getActivity().getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         return v;
     }
 
@@ -181,7 +181,7 @@ public class GetCardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 hideKey(view);
-                getActivity().getFragmentManager().beginTransaction().remove(GetCardFragment.this).commit();
+                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetCardFragment.this).commit();
             }
         });
 
@@ -189,7 +189,7 @@ public class GetCardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 hideKey(view);
-                getActivity().getFragmentManager().beginTransaction().remove(GetCardFragment.this).commit();
+                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetCardFragment.this).commit();
             }
         });
         view.findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
@@ -204,7 +204,7 @@ public class GetCardFragment extends Fragment {
                     card = card_ed.getText().toString();
                     pin = pin_ed.getText().toString();
                     hideKey(view);
-                    getActivity().getFragmentManager().beginTransaction().remove(GetCardFragment.this).commit();
+                    getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetCardFragment.this).commit();
                 }
             }
         });

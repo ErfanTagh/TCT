@@ -1,6 +1,7 @@
 package com.services.tct.Parser;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class RSSItem implements Serializable {
 
@@ -11,12 +12,18 @@ public class RSSItem implements Serializable {
 	private Long _amount = null;
 	private String _message = null;
 	private Long _telNo = null;
+	private Date _payDate = null;
 	private boolean _isSelected = false;
 	private boolean _isPayed = false;
 
 
 	public void setStatus(Long status) {
 		_status = status;
+	}
+
+	public void setPayDate(Date date) {
+
+		_payDate = date;
 	}
 
 	public void setIsPayed(boolean isPayed) {
@@ -59,6 +66,11 @@ public class RSSItem implements Serializable {
 	
 	public Long getAmount() {
 		return _amount;
+	}
+
+	public Date getPayDate() {
+
+		return _payDate;
 	}
 
 	public boolean getIsSelected() {

@@ -1,6 +1,7 @@
 package com.services.tct.Fragments;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -38,7 +39,7 @@ public class GetPhoneFragment extends Fragment {
         typeface = Typeface.createFromAsset(getActivity().getAssets(), "IRANSansMobile(FaNum)_Bold.ttf");
         View v = inflater.inflate(R.layout.get_phone_dialog, null);
         getActivity().getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         show_dialog_get_phone(v);
         return v;
 
@@ -138,7 +139,7 @@ public class GetPhoneFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 hideKey(view);
-                getActivity().getFragmentManager().beginTransaction().remove(GetPhoneFragment.this).commit();
+                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetPhoneFragment.this).commit();
             }
         });
 
@@ -146,7 +147,13 @@ public class GetPhoneFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 hideKey(v);
-                getActivity().getFragmentManager().beginTransaction().remove(GetPhoneFragment.this).commit();
+////                getActivity().getFragmentManager().beginTransaction().remove(GetPhoneFragment.this).commit();
+//                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_right);
+//                getFragmentManager().popBackStack();
+                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetPhoneFragment.this).commit();
+//                getActivity().getFragmentManager().beginTransaction();
+
+
             }
         });
         view.findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
@@ -157,7 +164,7 @@ public class GetPhoneFragment extends Fragment {
                 } else {
                     isCommit = true;
                     phone = phone_ed.getText().toString();
-                    getActivity().getFragmentManager().beginTransaction().remove(GetPhoneFragment.this).commit();
+                    getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.exit_to_right2,R.animator.enter_from_right2).remove(GetPhoneFragment.this).commit();
                 }
             }
         });
